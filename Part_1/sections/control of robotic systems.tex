@@ -2,48 +2,17 @@
 
 \subsection{Controlling a robot}
 
-\textbf{Definition:} Determine, using appropriate algorithms, the control inputs that ensure the robot behaves as desired both kinematically (position/velocity) and dynamically (forces, interaction).
+\textbf{Definition:} Determine, through appropriate algorithms, the control inputs that ensure the robot behaves as desired both kinematically (position/velocity) and dynamically (forces, interaction).
 
-Before designing the control algorithms, it is necessary to deal with important preliminary issues:
-
-\begin{itemize}
-    \item \textbf{Actuation:} What is the control input of the robot?
-    \item \textbf{Architecture:} What is the structure of the robot's control system?
-    \item \textbf{Planning:} How can the robot's desired behavior be defined and designed?
-    \item \textbf{Stability:} How can robust robot behavior be guaranteed?
-\end{itemize}
+Before designing the control algorithms it is useful to clarify some preliminary aspects: what constitutes the control input of the robot (\textbf{actuation}), how the control system is structured (\textbf{architecture}), how the desired behavior is defined (\textbf{planning}), and how robust operation is guaranteed (\textbf{stability}).
 
 \hfill
 
 \subsection{Actuation}
 
-Every joint is actuated by a \textbf{servomotor}.
+Every joint is actuated by a \textbf{servomotor}. Depending on the application, the actuator may be pneumatic or hydraulic—capable of delivering very high payloads but offering limited control flexibility and slow motion—or an \textbf{electrical motor}, which enables precise trajectory tracking and high control flexibility at the cost of payload capacity.
     
-Several types of servomotors can be used:
-
-\begin{itemize}
-    \item Pneumatic/hydraulic actuators (very high payload)
-    \begin{itemize}
-        \item Low control flexibility;
-        \item Used for opening/closing tools and simple motions;
-        \item Very slow.
-    \end{itemize}
-    \item \textbf{Electrical motors}
-    \begin{itemize}
-        \item High control flexibility;
-        \item Trajectory tracking;
-        \item Limited payload capacity.
-    \end{itemize}
-\end{itemize}
-    
-The most commonly used electrical servomotors are:
-
-\begin{itemize}
-    \item DC motors with permanent magnets
-    \item Brushless motors
-\end{itemize}
-
-\textit{Remember that we control the motors to control the robot.}
+The most commonly used electrical servomotors are DC motors with permanent magnets and brushless motors. \textit{Remember that we control the motors to control the robot.}
 
 \newpage
 
@@ -58,23 +27,7 @@ The most commonly used electrical servomotors are:
 \end{wrapfigure}
 
 
-The control process starts from digital information provided by the controller. 
-This information $u(t)$ represents the \textbf{control signals}.
-
-A \textbf{Power Amplifier} transforms them into a physical signal $u_s(t)=G\,u(t)$ to control the motor.
-
-The \textbf{Servomotor} then produces movement described by angular velocity $\dot{q}_m(t)$ and torque $\tau_m(t)$.
-
-This torque is transmitted through a \textbf{Gearbox}, which adapts speed and torque to the mechanical structure.
-
-Finally, the robot joints experience angular velocity $\dot{q}(t)$ and torque $\tau(t)$, i.e., the \textbf{torque that moves the joints}.
-
-\textit{Notes:}
-\begin{itemize}
-  \item The input comes as digital information from the controller.
-  \item The servomotor generates torque and angular velocity.
-  \item The gearbox ensures that the torque is adapted to effectively move the robot joints.
-\end{itemize}
+The control process starts from digital information provided by the controller; this information $u(t)$ represents the \textbf{control signals}. A \textbf{power amplifier} transforms them into a physical signal $u_s(t)=G\,u(t)$ to control the motor. The \textbf{servomotor} produces motion described by angular velocity $\dot{q}_m(t)$ and torque $\tau_m(t)$, which are transmitted through a \textbf{gearbox} adapting speed and torque to the mechanical structure. Finally, the robot joints experience angular velocity $\dot{q}(t)$ and torque $\tau(t)$, i.e., the \textbf{torque that moves the joints}. The input therefore comes as digital information from the controller, the servomotor generates torque and angular velocity, and the gearbox adapts this torque to effectively move the robot joints.
 
 \hfill
 

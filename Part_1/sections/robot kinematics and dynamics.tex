@@ -19,13 +19,9 @@ These questions are essential for defining the \textbf{coordinate frames} of eac
 
 \subsection{Where is the part of interest of the robot?}
 
-The primary kinematic problem in robotics is: \textbf{how to describe the position and orientation of a robot component (e.g., end-effector or mobile base) with respect to a desired reference frame}.
+The primary kinematic problem in robotics is \textbf{how to describe the position and orientation of a robot component, such as an end-effector or a mobile base, with respect to a desired reference frame}.
 
-This is essential because robot control, planning, and coordination rely on being able to mathematically describe “where” a certain component of the robot is located. Typical examples of parts of interest include:
-\begin{itemize}
-  \item the end-effector of a manipulator,
-  \item the mobile base of an autonomous robot.
-\end{itemize}
+This is essential because robot control, planning, and coordination rely on being able to mathematically describe “where” a certain component of the robot is located.
 
 \textbf{Kinematics of the robot} is therefore:
 \begin{itemize}
@@ -49,12 +45,7 @@ The diagram illustrates this idea: the robot's body frame (local frame) is shown
 
 To analyze and control a robot, we must understand the kinematics of its components. Since a robot is composed of a sequence of rigid bodies (e.g., links in a manipulator), we must study the motion of rigid bodies to address robot kinematics properly.
 
-\textbf{Key concepts:}
-\begin{itemize}
-  \item A robot is made up of one or more rigid bodies connected by joints.
-  \item Understanding robot kinematics requires first understanding \textbf{rigid body kinematics}.
-  \item The mathematical tools developed for rigid body motion — such as coordinate transformations and rotation matrices — are essential for solving robot kinematics.
-\end{itemize}
+\textbf{Key concepts:} a robot is made up of one or more rigid bodies connected by joints; understanding robot kinematics therefore requires first understanding \textbf{rigid body kinematics} and the mathematical tools developed for rigid body motion, such as coordinate transformations and rotation matrices.
 
 The central question remains the same: \textit{"How can we describe the position and orientation of a rigid body with respect to a desired reference frame?"} This question is foundational and guides the development of the entire kinematic model of the robot.
 
@@ -175,32 +166,18 @@ The \textbf{position} of a rigid body $B$ with respect to a fixed reference fram
 
 The orientation of a rigid body frame $F_B$ with respect to a reference frame $F_0$ can be described using different mathematical tools. The most common are:
 
-\textbf{Rotation Matrix}:
-\begin{itemize}
-  \item The orientation of $F_B$ with respect to $F_0$ is given by the rotation matrix ${}^0R_B \in SO(3)$.
-  \item The inverse orientation (from $F_0$ to $F_B$) is given by the transpose:
-  \[
-  {}^B R_0 = ({}^0 R_B)^T
-  \]
-  \item Rotation matrices can be composed via matrix multiplication:
-  \[
-  R_{AC} = R_{AB} \cdot R_{BC}
-  \]
-\end{itemize}
+\textbf{Rotation Matrix}: the orientation of $F_B$ with respect to $F_0$ is given by the rotation matrix ${}^0R_B \in SO(3)$; the inverse orientation (from $F_0$ to $F_B$) is given by the transpose
+\[
+{}^B R_0 = ({}^0 R_B)^T
+\]
+and rotation matrices compose via matrix multiplication,
+\[
+R_{AC} = R_{AB} \cdot R_{BC}.
+\]
 
-\textbf{Euler Angles}:
-\begin{itemize}
-  \item Represent orientation using three sequential angles: $(\rho, \vartheta, \varphi)$.
-  \item These angles express rotations around selected axes (e.g., ZYX or XYZ convention).
-  \item Euler angles are intuitive but suffer from singularities (gimbal lock).
-\end{itemize}
+\textbf{Euler Angles}: orientation can also be represented by three sequential angles $(\rho, \vartheta, \varphi)$ describing rotations around selected axes (e.g., ZYX or XYZ convention), a formulation that is intuitive but affected by singularities (gimbal lock).
 
-\textbf{Unit Quaternions}:
-\begin{itemize}
-  \item A compact and non-singular representation of orientation.
-  \item Useful for interpolation (e.g., SLERP) and for avoiding gimbal lock.
-  \item Quaternions use a four-element vector and can be composed using quaternion algebra.
-\end{itemize}
+\textbf{Unit Quaternions}: a compact and non-singular representation of orientation, useful for interpolation (e.g., SLERP) and for avoiding gimbal lock. Quaternions use a four-element vector and compose through quaternion algebra.
 
 \begin{figure}[H]
   \centering
@@ -214,12 +191,7 @@ The orientation of a rigid body frame $F_B$ with respect to a reference frame $F
 
 The \textbf{pose} of a rigid body with respect to a reference frame $F_0$ is defined by the pose of a frame $F_B$ rigidly attached to the body.
 
-This pose is determined by two components:
-
-\begin{itemize}
-  \item \textbf{Position:} the relative translation of the origin $O_B$ of frame $F_B$ with respect to the origin $O_0$ of the reference frame $F_0$, expressed as a vector ${}^0\mathbf{O}_B$.
-  \item \textbf{Orientation:} the relative orientation of the frame $F_B$ with respect to $F_0$, represented by the rotation matrix ${}^0R_B$.
-\end{itemize}
+This pose is determined by two components: the \textbf{position}, i.e., the translation of the origin $O_B$ of frame $F_B$ with respect to the origin $O_0$ of the reference frame $F_0$ and expressed by the vector ${}^0\mathbf{O}_B$, and the \textbf{orientation}, namely the rotation of frame $F_B$ with respect to $F_0$, represented by the rotation matrix ${}^0R_B$.
 
 Together, these two elements fully define the pose of the rigid body and can be compactly expressed using a \textbf{homogeneous transformation matrix} — which will be introduced and detailed in the following slides.
 

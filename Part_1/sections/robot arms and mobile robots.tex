@@ -2,17 +2,9 @@
 
 \subsection{Types of robots considered}
 
-In this course, we consider two main categories of robots:
-\begin{itemize}
-  \item \textbf{Robotic arms}: stationary manipulators used for tasks such as welding, painting, and assembly.
-  \item \textbf{Mobile robots}: autonomous ground vehicles used for transporting goods or navigating industrial environments.
-\end{itemize}
+In this course, we consider two main categories of robots: \textbf{robotic arms}, i.e., stationary manipulators used for tasks such as welding, painting, and assembly, and \textbf{mobile robots}, autonomous ground vehicles used to transport goods or navigate industrial environments.
 
-Both categories may belong to either of the following types:
-\begin{itemize}
-  \item \textbf{Collaborative robots (cobots)}: designed to work safely alongside humans without fencing or physical barriers.
-  \item \textbf{Non-collaborative robots}: typically operate in isolated or restricted areas due to safety concerns.
-\end{itemize}
+Both categories may be either \textbf{collaborative}—designed to work safely alongside humans without fencing or physical barriers—or \textbf{non-collaborative}, operating in isolated or restricted areas due to safety concerns.
 
 \begin{figure}[H]
   \centering
@@ -24,14 +16,7 @@ Both categories may belong to either of the following types:
 
 \subsection{Robotic Arms}
 
-A robotic system is composed of two main components:
-
-\begin{itemize}
-  \item \textbf{The control system}: this is the electronic part responsible for processing commands, executing motion planning, and interfacing with the environment and the user. It includes the \textbf{teach-pendant}, a handheld device used by operators to program and manually control the robot.
-  \item \textbf{The manipulator}: this is the mechanical structure of the robot—often an articulated arm—used to physically interact with the environment by performing tasks like moving, gripping, or assembling objects.
-\end{itemize}
-
-These two parts are strongly interconnected and operate together to enable robotic functionality.
+A robotic system is composed of two main components: the \textbf{control system}, an electronic unit that processes commands, plans motion and interfaces with the environment and the user—typically through a \textbf{teach-pendant}—and the \textbf{manipulator}, the mechanical structure, often an articulated arm, that physically interacts with the environment by moving, gripping or assembling objects. These two parts are strongly interconnected and operate together to enable robotic functionality.
 
 \begin{figure}[H]
   \centering
@@ -43,45 +28,17 @@ These two parts are strongly interconnected and operate together to enable robot
 
 \subsection{The control system}
 
-The control system is considered the \textbf{``brain''} of the robot. Its main role is to determine the motions that the manipulator should perform, based on:
-\begin{itemize}
-  \item The assigned task;
-  \item Information received from sensors;
-  \item Internal control algorithms.
-\end{itemize}
+The control system is considered the \textbf{``brain''} of the robot. Its main role is to determine the motions that the manipulator should perform, combining the assigned task, information received from sensors and internal control algorithms.
 
-It is generally a \textbf{complex architecture}, composed of multiple processors and often connected to various devices for monitoring, control, and data storage.
-
-The fundamental functions that every control system must implement are:
-\begin{itemize}
-  \item \textbf{Human interface}: to allow operators to interact with the robot, e.g., via a teach pendant;
-  \item \textbf{Data storage}: for saving configurations, logs, and programs;
-  \item \textbf{Motion planning}: to compute trajectories and motion sequences;
-  \item \textbf{Real-time joint control}: to precisely actuate the robot in real-time;
-  \item \textbf{Sensor monitoring}: to continuously read and react to sensor data.
-\end{itemize}
+It is generally a \textbf{complex architecture}, composed of multiple processors and often connected to various devices for monitoring, control, and data storage. Among its fundamental functions are the human interface, which allows operators to interact with the robot (for instance via a teach pendant), data storage for configurations and programs, motion planning, real-time joint control and continuous sensor monitoring.
 
 \hfill
 
 \subsection{The manipulator}
 
-The manipulator is the part of the robot that directly interacts with the external environment. It is typically composed of:
+The manipulator is the part of the robot that directly interacts with the external environment. It is typically composed of a series of rigid bodies called \textbf{links} interconnected by actuated \textbf{joints}. The manipulator is anchored by a \textbf{base}, which can either be fixed to the ground or mounted on a mobile platform.
 
-\begin{itemize}
-  \item A series of rigid bodies called \textbf{links};
-  \item A series of actuated interconnections called \textbf{joints}.
-\end{itemize}
-
-The manipulator is anchored by a \textbf{base}, which can either be fixed to the ground or mounted on a mobile platform.
-
-At the opposite end, the manipulator typically features an \textbf{end-effector}—the component that performs the actual work. Examples include:
-\begin{itemize}
-  \item Grippers;
-  \item Welders;
-  \item Hands or other tools.
-\end{itemize}
-
-The end-effector is mounted on the \textbf{wrist}, a joint that provides orientation and fine rotation capabilities to the tool.
+At the opposite end it usually features an \textbf{end-effector}—the component that performs the actual work, such as grippers, welders or anthropomorphic hands. The end-effector is mounted on the \textbf{wrist}, a joint that provides orientation and fine rotation capabilities to the tool.
 
 \begin{figure}[H]
   \centering
@@ -241,14 +198,7 @@ Wheels are considered the most appropriate solution for many mobile robot applic
 
 \subsubsection*{Types of wheels}
 
-Wheeled mobile robots can be equipped with different types of wheels, each offering different motion capabilities:
-
-\begin{itemize}
-  \item \textbf{Fixed wheel}: allows rolling motion along its axis but not rotation about the vertical axis.
-  \item \textbf{Adjustable centered wheel}: similar to a caster but mounted with the pivot axis centered on the wheel; it can rotate about the vertical axis.
-  \item \textbf{Castor wheel}: an unpowered wheel that can swivel, commonly used for passive support.
-  \item \textbf{Omnidirectional wheel}: equipped with rollers mounted around its circumference, it allows motion in any direction on the plane.
-\end{itemize}
+Wheeled mobile robots can be equipped with different types of wheels, each offering distinct motion capabilities: the \textbf{fixed wheel} allows rolling along its axis but not rotation about the vertical axis; the \textbf{adjustable centered wheel}, similar to a caster but with the pivot axis centered on the wheel, can rotate about the vertical axis; the \textbf{castor wheel} is unpowered and swivels for passive support; finally, the \textbf{omnidirectional wheel} uses rollers mounted around its circumference to permit motion in any planar direction.
 
 \begin{figure}[H]
   \centering
