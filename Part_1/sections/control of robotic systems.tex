@@ -2,48 +2,17 @@
 
 \subsection{Controlling a robot}
 
-\textbf{Def.:} Determinate, using proper algorithms, the control inputs such that the robot behaves as desired both kinematically (position/velocity) and/or dynamically (forces, interaction).
+\textbf{Definition:} Determine, through appropriate algorithms, the control inputs that ensure the robot behaves as desired both kinematically (position/velocity) and dynamically (forces, interaction).
 
-Before designing the control algorithms, it is necessary to deal with important preliminary issues:
-
-\begin{itemize}
-    \item \textbf{Actuation:} What is the control input of the robot?
-    \item \textbf{Architecture:} What is the structure of the control system for a robot?
-    \item \textbf{Planning:} How to define and design the desired behavior of the robot?
-    \item \textbf{Stability:} How to guarantee a robust behavior of the robot?
-\end{itemize}
+Before designing the control algorithms it is useful to clarify some preliminary aspects: what constitutes the control input of the robot (\textbf{actuation}), how the control system is structured (\textbf{architecture}), how the desired behavior is defined (\textbf{planning}), and how robust operation is guaranteed (\textbf{stability}).
 
 \hfill
 
 \subsection{Actuation}
 
-Every joint is actuated by a \textbf{servomotor}.
+Every joint is actuated by a \textbf{servomotor}. Depending on the application, the actuator may be pneumatic or hydraulic—capable of delivering very high payloads but offering limited control flexibility and slow motion—or an \textbf{electrical motor}, which enables precise trajectory tracking and high control flexibility at the cost of payload capacity.
     
-Several types of servomotors can be used:
-
-\begin{itemize}
-    \item Pneumatic/hydraulic actuators (very high payload)
-    \begin{itemize}
-        \item Low control flexibility
-        \item Used for opening/closing tools, simple motions
-        \item Very slow
-    \end{itemize}
-    \item \textbf{Electrical motors}
-    \begin{itemize}
-        \item High control flexibility
-        \item Trajectory tracking
-        \item No high payload
-    \end{itemize}
-\end{itemize}
-    
-The most used electrical servomotors are:
-
-\begin{itemize}
-    \item DC motors with permanent magnets
-    \item Brushless motors
-\end{itemize}
-
-\textit{Remember that we control the motors to control the robot.}
+The most commonly used electrical servomotors are DC motors with permanent magnets and brushless motors. \textit{Remember that we control the motors to control the robot.}
 
 \newpage
 
@@ -58,41 +27,25 @@ The most used electrical servomotors are:
 \end{wrapfigure}
 
 
-The control process starts from digital information (data) given by the controller. 
-This information $u(t)$ represents the \textbf{control signals}.
-
-A \textbf{Power Amplifier} transforms them into a physical signal $u_s(t)=G\,u(t)$ to control the motor.
-
-The \textbf{Servomotor} then produces movement described by angular velocity $\dot{q}_m(t)$ and torque $\tau_m(t)$.
-
-This torque is transmitted through a \textbf{Gearbox}, which adapts speed and torque to the mechanical structure.
-
-Finally, the robot joints experience the movement: angular velocity $\dot{q}(t)$ and torque $\tau(t)$, i.e. the \textbf{torque that moves the joints}.
-
-\textit{Notes:}
-\begin{itemize}
-  \item The input comes as digital information from the controller.
-  \item The servomotor generates torque and angular velocity.
-  \item The gearbox ensures that the torque is adapted to effectively move the robot joints.
-\end{itemize}
+The control process starts from digital information provided by the controller; this information $u(t)$ represents the \textbf{control signals}. A \textbf{power amplifier} transforms them into a physical signal $u_s(t)=G\,u(t)$ to control the motor. The \textbf{servomotor} produces motion described by angular velocity $\dot{q}_m(t)$ and torque $\tau_m(t)$, which are transmitted through a \textbf{gearbox} adapting speed and torque to the mechanical structure. Finally, the robot joints experience angular velocity $\dot{q}(t)$ and torque $\tau(t)$, i.e., the \textbf{torque that moves the joints}. The input therefore comes as digital information from the controller, the servomotor generates torque and angular velocity, and the gearbox adapts this torque to effectively move the robot joints.
 
 \hfill
 
 \subsubsection*{DC Motors}
 
-DC motors are \textbf{mainly designed for achieving high rotational speeds with low torques}.  
-They are typically used in high-speed and high-volumes industrial automation.  
+DC motors are \textbf{mainly designed to achieve high rotational speeds with low torques}.  
+They are typically used in high-speed, high-volume industrial automation.  
 
 \textit{Note: In industrial applications, we want to move as fast as possible.}
 
-The angular position/velocity of the rotating axis can be measured by sensors:
+The angular position and velocity of the rotating axis can be measured using sensors:
 \begin{itemize}
     \item Position $\rightarrow$ encoder
-    \item Velocity $\rightarrow$ encoder (+processing), resolver
-    \item Torque/Current $\rightarrow$ torque sensor, current sensors
+    \item Velocity $\rightarrow$ encoder (+processing) or resolver
+    \item Torque/current $\rightarrow$ torque or current sensors
 \end{itemize}
 
-\textbf{Low-level position/velocity control is embedded} in servomotors.  
+\textbf{Low-level position and velocity control is embedded} in servomotors.  
 
 \textit{Note: The controller integrates the motor movement at the lowest input level.}
 
@@ -100,9 +53,9 @@ The angular position/velocity of the rotating axis can be measured by sensors:
 
 \subsubsection*{Gearbox}
 
-A \textbf{gearbox} is a mechanical device that is used to increase the output torque or change the speed of the motor.  
+A \textbf{gearbox} is a mechanical device used to increase output torque or change motor speed.  
 
-The motor shaft is connected to one end of the gearbox and, through the internal configuration of the gears of the gearbox, it provides an output torque and a specific speed determined by the gear ratio.  
+The motor shaft is connected to one end of the gearbox and, through the internal gear configuration, provides an output torque and a specific speed determined by the gear ratio.  
 
 \[
 \begin{cases}
@@ -799,3 +752,4 @@ The actuation system of a robot can have a significant impact on the final model
 Moreover, the choice of the control architecture strongly influences the design of the controller. For robotic arms, this often means deciding whether to work in the joint space or in the workspace, while for mobile robots it may require the use of dynamic compensation.  
 
 Finally, it is important to highlight that the model of the robot is crucial not only for planning tasks but also for the actual control of the robot itself.
+
