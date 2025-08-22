@@ -1,0 +1,66 @@
+% Template Appunti Universitari %
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Per inserire immagini
+\usepackage{amsmath}  % Per formule matematiche avanzate
+\usepackage{amssymb}  % Simboli aggiuntivi
+\usepackage{geometry} % Margini più comodi
+\geometry{margin=2.5cm}
+\usepackage{parskip} % Rimuove l'indentazione e aggiunge spazio tra i paragrafi
+\usepackage{hyperref} % Per i collegamenti ipertestuali
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{fancyhdr} % Per modificare la numerazione e intestazioni
+\usepackage{wrapfig} % aggiungi questo
+
+
+\begin{document}
+
+% ------------------------
+% Titolo centrato verticalmente
+% ------------------------
+\thispagestyle{empty} % No page number
+\vspace*{\fill}
+\begin{center}
+  {\LARGE \textbf{Industrial and\\ Collaborative Robotics\\[0.5em] (Part I)}}\\[1.5em]
+  {\large Riccardo Florio}\\[0.5em]
+  {\large May 2025}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+% Pagina vuota
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+% ------------------------
+% Indice (senza numero di pagina)
+% ------------------------
+\pagenumbering{gobble}
+\tableofcontents
+\newpage
+
+% ------------------------
+% Inizio della numerazione da 1
+% ------------------------
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% ------------------------
+% Inizio contenuto
+% ------------------------
+
+\include{sections/introduction}
+\include{sections/robot arms and mobile robots}
+\include{sections/robot kinematics and dynamics}
+\include{sections/control of robotic systems}
+
+% ------------------------
+% Appendice
+% ------------------------
+%\appendix
+
+%\section{Appendice 1}
+%\label{appendix:appendice 1}
+
+\end{document}
