@@ -2,15 +2,15 @@
 
 \subsection{Controlling a robot}
 
-\textbf{Def.:} Determinate, using proper algorithms, the control inputs such that the robot behaves as desired both kinematically (position/velocity) and/or dynamically (forces, interaction).
+\textbf{Definition:} Determine, using appropriate algorithms, the control inputs that ensure the robot behaves as desired both kinematically (position/velocity) and dynamically (forces, interaction).
 
 Before designing the control algorithms, it is necessary to deal with important preliminary issues:
 
 \begin{itemize}
     \item \textbf{Actuation:} What is the control input of the robot?
-    \item \textbf{Architecture:} What is the structure of the control system for a robot?
-    \item \textbf{Planning:} How to define and design the desired behavior of the robot?
-    \item \textbf{Stability:} How to guarantee a robust behavior of the robot?
+    \item \textbf{Architecture:} What is the structure of the robot's control system?
+    \item \textbf{Planning:} How can the robot's desired behavior be defined and designed?
+    \item \textbf{Stability:} How can robust robot behavior be guaranteed?
 \end{itemize}
 
 \hfill
@@ -24,19 +24,19 @@ Several types of servomotors can be used:
 \begin{itemize}
     \item Pneumatic/hydraulic actuators (very high payload)
     \begin{itemize}
-        \item Low control flexibility
-        \item Used for opening/closing tools, simple motions
-        \item Very slow
+        \item Low control flexibility;
+        \item Used for opening/closing tools and simple motions;
+        \item Very slow.
     \end{itemize}
     \item \textbf{Electrical motors}
     \begin{itemize}
-        \item High control flexibility
-        \item Trajectory tracking
-        \item No high payload
+        \item High control flexibility;
+        \item Trajectory tracking;
+        \item Limited payload capacity.
     \end{itemize}
 \end{itemize}
     
-The most used electrical servomotors are:
+The most commonly used electrical servomotors are:
 
 \begin{itemize}
     \item DC motors with permanent magnets
@@ -58,7 +58,7 @@ The most used electrical servomotors are:
 \end{wrapfigure}
 
 
-The control process starts from digital information (data) given by the controller. 
+The control process starts from digital information provided by the controller. 
 This information $u(t)$ represents the \textbf{control signals}.
 
 A \textbf{Power Amplifier} transforms them into a physical signal $u_s(t)=G\,u(t)$ to control the motor.
@@ -67,7 +67,7 @@ The \textbf{Servomotor} then produces movement described by angular velocity $\d
 
 This torque is transmitted through a \textbf{Gearbox}, which adapts speed and torque to the mechanical structure.
 
-Finally, the robot joints experience the movement: angular velocity $\dot{q}(t)$ and torque $\tau(t)$, i.e. the \textbf{torque that moves the joints}.
+Finally, the robot joints experience angular velocity $\dot{q}(t)$ and torque $\tau(t)$, i.e., the \textbf{torque that moves the joints}.
 
 \textit{Notes:}
 \begin{itemize}
@@ -80,19 +80,19 @@ Finally, the robot joints experience the movement: angular velocity $\dot{q}(t)$
 
 \subsubsection*{DC Motors}
 
-DC motors are \textbf{mainly designed for achieving high rotational speeds with low torques}.  
-They are typically used in high-speed and high-volumes industrial automation.  
+DC motors are \textbf{mainly designed to achieve high rotational speeds with low torques}.  
+They are typically used in high-speed, high-volume industrial automation.  
 
 \textit{Note: In industrial applications, we want to move as fast as possible.}
 
-The angular position/velocity of the rotating axis can be measured by sensors:
+The angular position and velocity of the rotating axis can be measured using sensors:
 \begin{itemize}
     \item Position $\rightarrow$ encoder
-    \item Velocity $\rightarrow$ encoder (+processing), resolver
-    \item Torque/Current $\rightarrow$ torque sensor, current sensors
+    \item Velocity $\rightarrow$ encoder (+processing) or resolver
+    \item Torque/current $\rightarrow$ torque or current sensors
 \end{itemize}
 
-\textbf{Low-level position/velocity control is embedded} in servomotors.  
+\textbf{Low-level position and velocity control is embedded} in servomotors.  
 
 \textit{Note: The controller integrates the motor movement at the lowest input level.}
 
@@ -100,9 +100,9 @@ The angular position/velocity of the rotating axis can be measured by sensors:
 
 \subsubsection*{Gearbox}
 
-A \textbf{gearbox} is a mechanical device that is used to increase the output torque or change the speed of the motor.  
+A \textbf{gearbox} is a mechanical device used to increase output torque or change motor speed.  
 
-The motor shaft is connected to one end of the gearbox and, through the internal configuration of the gears of the gearbox, it provides an output torque and a specific speed determined by the gear ratio.  
+The motor shaft is connected to one end of the gearbox and, through the internal gear configuration, provides an output torque and a specific speed determined by the gear ratio.  
 
 \[
 \begin{cases}
@@ -799,3 +799,4 @@ The actuation system of a robot can have a significant impact on the final model
 Moreover, the choice of the control architecture strongly influences the design of the controller. For robotic arms, this often means deciding whether to work in the joint space or in the workspace, while for mobile robots it may require the use of dynamic compensation.  
 
 Finally, it is important to highlight that the model of the robot is crucial not only for planning tasks but also for the actual control of the robot itself.
+

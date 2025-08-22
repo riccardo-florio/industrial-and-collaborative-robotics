@@ -2,24 +2,24 @@
 
 \subsection{Locate the robot and the objects in the scene}
 
-Here we introduce a fundamental question in robot kinematics: how to describe the relative position and orientation of objects in a robotic environment. In particular, we are asked to determine spatial relationships between different elements in the scene, such as the robot arm, its base, the mobile platform, the conveyor belt, and the boxes.
+This subsection introduces the fundamental question in robot kinematics: how to describe the relative positions and orientations of objects in a robotic environment. In particular, it requires determining the spatial relationships between different elements in the scene, such as the robot arm, its base, the mobile platform, the conveyor belt, and surrounding boxes.
 
 The key questions are:
 
 \begin{itemize}
   \item Where is the tool with respect to the base of the robot arm?
-  \item Where is the mobile robot with respect to the base of the arm?
+  \item Where is the mobile robot with respect to the arm base?
   \item Where is the box with respect to the mobile robot?
   \item Where is the conveyor belt with respect to the robot?
 \end{itemize}
 
-These questions are essential in defining the \textbf{coordinate frames} for each object and in understanding \textbf{how to transform} positions and orientations from one frame to another using homogeneous transformations. This is a prerequisite for solving forward and inverse kinematics problems, motion planning, and control.
+These questions are essential for defining the \textbf{coordinate frames} of each object and for understanding \textbf{how to transform} positions and orientations from one frame to another using homogeneous transformations. This is a prerequisite for solving forward and inverse kinematics problems, motion planning, and control.
 
 \hfill
 
 \subsection{Where is the part of interest of the robot?}
 
-The key kinematic problem in robotics is: \textbf{how to describe the position and orientation of a part of the robot (e.g., end-effector, mobile base) with respect to a desired reference frame}.
+The primary kinematic problem in robotics is: \textbf{how to describe the position and orientation of a robot component (e.g., end-effector or mobile base) with respect to a desired reference frame}.
 
 This is essential because robot control, planning, and coordination rely on being able to mathematically describe “where” a certain component of the robot is located. Typical examples of parts of interest include:
 \begin{itemize}
@@ -29,8 +29,8 @@ This is essential because robot control, planning, and coordination rely on bein
 
 \textbf{Kinematics of the robot} is therefore:
 \begin{itemize}
-  \item A fundamental problem for understanding how to use a robot;
-  \item A problem that needs a clear and sound mathematical formalization.
+  \item fundamental for understanding how to use a robot;
+  \item a problem that needs a clear and sound mathematical formalization.
 \end{itemize}
 
 The solution to this problem relies on the use of \textbf{reference frames}, often attached to relevant parts of the robot or to the environment. The \textbf{Body Frame} is the coordinate system fixed to the robot itself (e.g., at the base of a mobile platform or at a specific link of a manipulator). It moves with the robot and is used to express its configuration.
